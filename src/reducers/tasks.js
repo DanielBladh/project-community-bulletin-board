@@ -10,8 +10,24 @@ export const tasks = createSlice({
   ],
   reducers: {
     addTask: (state, action) => {
-      const { text } = action.payload;
-      state.push({ id: state.length + 1, text, complete: false });
+      const { text, dueDate, categories } = action.payload;
+      state.push({
+        id: uuidv4(),
+        text,
+        complete: false,
+        timestamp: new Date().toISOString(),
+        dueDate: dueDate || null,
+        categories: categories || [
+          "Assembly",
+          "Mounting",
+          "Moving",
+          "Cleaning",
+          "Outdoor Help",
+          "Homee Repairs",
+          "Painting",
+          "Trending",
+        ],
+      });
     },
     removeTask: (state, action) => {
       const taskId = action.payload;
@@ -24,7 +40,15 @@ export const tasks = createSlice({
         task.complete = !task.complete;
       }
     },
+    uuidv4: () => {
+      return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+        (
+          c ^
+          (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+        ).toString(16)
+      );
+    },
   },
 });
 
-export const { addTask, removeTask, toggleTask } = tasks.actions;
+export const { addTask, removeTask, toggleTask, uuidv4 } = tasks.actions;

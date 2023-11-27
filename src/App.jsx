@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -7,6 +6,7 @@ import { tasks } from "./reducers/tasks";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import Navbar from "./components/Navbar";
+import { AppContainer } from "./styles/AppStyles"; // Importing the AppContainer style
 
 const reducer = combineReducers({
   tasks: tasks.reducer,
@@ -18,13 +18,13 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <div>
           <Navbar />
+        <AppContainer>
           <Routes>
+            <Route path="/" element={<TaskList />} />
             <Route path="/add" element={<TaskForm />} />
-            <Route path="/view" element={<TaskList />} />
           </Routes>
-        </div>
+        </AppContainer>
       </Router>
     </Provider>
   );

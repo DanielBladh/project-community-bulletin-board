@@ -22,7 +22,7 @@ Stretch goals
 Timestamp for Tasks:
 Add a timestamp for each task indicating when it was created. Display the timestamp as a formatted date while storing it as a raw date.
 Add a date input to the new task form to set a due date. Display the due date in the list and style it differently if a task is overdue.
-Use styled components and/or vanilla CSS to do your styling.
+Use styled components to do your styling.
 Categories/Tags for Tasks:
 Allow the creation of categories/tags for tasks to facilitate grouping, e.g., 'Housework', 'Shopping', etc.
 

@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link to="/add">Add Task</Link>
         </li>
         <li>
-          <Link to="/view">View Tasks</Link>
+          <Link to="/">View Tasks</Link>
         </li>
       </ul>
     </NavbarContainer>
