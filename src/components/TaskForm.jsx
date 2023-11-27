@@ -24,7 +24,7 @@ const TaskForm = () => {
     }
   };
 
-  const options = [
+  const categoryOptions = [
     "Assembly",
     "Mounting",
     "Moving",
@@ -58,7 +58,7 @@ const TaskForm = () => {
         <label>
           Categories:
           <select type="text" onChange={(e) => setCategories(e.target.value)}>
-            {options.map((x, index) => {
+            {categoryOptions.map((x, index) => {
               return (
                 <option key={index} value={x}>
                   {x}

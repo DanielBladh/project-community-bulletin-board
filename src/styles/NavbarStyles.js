@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
-  background-color: #333;
+  background-color: #D4A373;
   color: white;
   padding: 10px;
   display: flex;

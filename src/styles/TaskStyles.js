@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TaskListItem = styled.li`
+  background-color: #e9edc9;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;

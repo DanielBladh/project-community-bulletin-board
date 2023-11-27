@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { tasks } from "./reducers/tasks";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import TaskDetails from "./components/TaskDetails";
 import Navbar from "./components/Navbar";
 import { AppContainer } from "./styles/AppStyles"; // Importing the AppContainer style
 
@@ -22,6 +23,7 @@ const App = () => {
         <AppContainer>
           <Routes>
             <Route path="/" element={<TaskList />} />
+            <Route path="/tasks/:taskId" element={<TaskDetails />} />
             <Route path="/add" element={<TaskForm />} />
           </Routes>
         </AppContainer>

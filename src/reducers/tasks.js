@@ -1,18 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const generateUUID = () => {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
+};
+
 export const tasks = createSlice({
   name: "tasks",
   initialState: [
-    { id: 1, text: "Watch video on actions & reducers", complete: true },
-    { id: 2, text: "Follow redux codealong", complete: true },
-    { id: 3, text: "Fork weekly assignment", complete: true },
-    { id: 4, text: "Create a todo app", complete: false },
+    {
+      id: generateUUID(),
+      text: "Watch video on actions & reducers",
+      complete: true,
+    },
+    { id: generateUUID(), text: "Follow redux codealong", complete: true },
+    { id: generateUUID(), text: "Fork weekly assignment", complete: true },
+    { id: generateUUID(), text: "Create a todo app", complete: false },
   ],
   reducers: {
     addTask: (state, action) => {
       const { text, dueDate, categories } = action.payload;
       state.push({
-        id: uuidv4(),
+        id: generateUUID(),
         text,
         complete: false,
         timestamp: new Date().toISOString(),
@@ -40,15 +53,7 @@ export const tasks = createSlice({
         task.complete = !task.complete;
       }
     },
-    uuidv4: () => {
-      return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
-        (
-          c ^
-          (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
-        ).toString(16)
-      );
-    },
   },
 });
 
-export const { addTask, removeTask, toggleTask, uuidv4 } = tasks.actions;
+export const { addTask, removeTask, toggleTask } = tasks.actions;
