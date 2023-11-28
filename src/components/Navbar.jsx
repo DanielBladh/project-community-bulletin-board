@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <div className="header-title">
-      <h1>Community Bulletin Board</h1>
+      <h1>TaskHub</h1>
       </div>
       <ul>
         <li>

@@ -41,7 +41,7 @@ const TaskItem = ({ task }) => {
         {task.text}
       </span>
       <span>
-        <strong>Timestamp:</strong> {formatDate(task.timestamp)}
+        <strong>Created at:</strong> {formatDate(task.timestamp)}
       </span>
       {task.dueDate && (
         <span style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>

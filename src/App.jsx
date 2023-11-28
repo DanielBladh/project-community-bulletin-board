@@ -7,6 +7,7 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskDetails from "./components/TaskDetails";
 import Navbar from "./components/Navbar";
+import WelcomeMessage from "./components/WelcomeMessage";
 import { AppContainer } from "./styles/AppStyles"; // Importing the AppContainer style
 
 const reducer = combineReducers({
@@ -21,6 +22,7 @@ const App = () => {
       <Router>
           <Navbar />
         <AppContainer>
+        <WelcomeMessage />
           <Routes>
             <Route path="/" element={<TaskList />} />
             <Route path="/tasks/:taskId" element={<TaskDetails />} />
