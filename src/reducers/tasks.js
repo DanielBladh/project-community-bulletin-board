@@ -16,30 +16,35 @@ export const tasks = createSlice({
       id: generateUUID(),
       text: "Watch video on actions & reducers",
       complete: true,
+      price: 500,
+      dueDate: new Date().toISOString()
     },
-    { id: generateUUID(), text: "Follow redux codealong", complete: true },
-    { id: generateUUID(), text: "Fork weekly assignment", complete: true },
-    { id: generateUUID(), text: "Create a todo app", complete: false },
+   
   ],
   reducers: {
     addTask: (state, action) => {
-      const { text, dueDate, categories } = action.payload;
+      const {
+        text,
+        dueDate,
+        categories,
+        attachments,
+        price, // Include price in the payload
+        requirements,
+        communication,
+        securityInfo,
+      } = action.payload;
       state.push({
         id: generateUUID(),
         text,
         complete: false,
         timestamp: new Date().toISOString(),
         dueDate: dueDate || null,
-        categories: categories || [
-          "Assembly",
-          "Mounting",
-          "Moving",
-          "Cleaning",
-          "Outdoor Help",
-          "Homee Repairs",
-          "Painting",
-          "Trending",
-        ],
+        categories: categories || [],
+        attachments,
+        price,
+        requirements,
+        communication,
+        securityInfo,
       });
     },
     removeTask: (state, action) => {
@@ -56,4 +61,4 @@ export const tasks = createSlice({
   },
 });
 
-export const { addTask, removeTask, toggleTask } = tasks.actions;
+export const { addTask, removeTask, toggleTask, uuidv4 } = tasks.actions;

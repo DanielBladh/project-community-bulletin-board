@@ -3,20 +3,26 @@ import React from "react";
 import styled from "styled-components";
 
 const GuidelinesContainer = styled.div`
-  background-color: #f9f9f9;
+  text-align: center;
   padding: 20px;
 `;
 
 const RuleList = styled.ul`
+  margin-top: 2rem;
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const RuleItem = styled.li`
   margin-bottom: 10px;
+  text-align: left;
+  max-width: 600px;
 `;
 
-const CommunityGuidelines = ({ onAccept }) => {
+const CommunityGuidelines = () => {
   return (
     <GuidelinesContainer>
       <h2>Community Guidelines for Posting Tasks</h2>
@@ -35,9 +41,7 @@ const CommunityGuidelines = ({ onAccept }) => {
           realistic price for the task based on its complexity, time commitment,
           and market standards.
         </RuleItem>
-        {/* Add more rules as needed */}
       </RuleList>
-      <button onClick={onAccept}>I Accept</button>
     </GuidelinesContainer>
   );
 };

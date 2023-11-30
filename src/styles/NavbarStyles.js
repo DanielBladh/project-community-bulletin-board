@@ -1,12 +1,27 @@
+// NavbarStyles.js
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
-  background-color: #D4A373;
+  background-color: #d4a373;
   color: white;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .header-title {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+  }
 
   ul {
     list-style: none;
@@ -27,10 +42,5 @@ export const NavbarContainer = styled.nav`
         }
       }
     }
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 1.5em;
   }
 `;

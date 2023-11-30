@@ -2,7 +2,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { formatDate } from "./TaskItem";
+import { formatDate, isTaskOverdue } from "../components/TaskItem";
 
 const TaskDetails = () => {
   const { taskId } = useParams();

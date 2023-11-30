@@ -20,9 +20,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-          <Navbar />
+        <Navbar />
         <AppContainer>
-        <WelcomeMessage />
+          <WelcomeMessage />
           <Routes>
             <Route path="/" element={<TaskList />} />
             <Route path="/tasks/:taskId" element={<TaskDetails />} />
