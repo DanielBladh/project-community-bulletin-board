@@ -10,8 +10,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export const formatDate = (dateString) => {
   const options = {
     year: "numeric",
-    month: "2-digit", // Display month as two digits
-    day: "2-digit", // Display day as two digits
+    month: "2-digit",
+    day: "2-digit",
   };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
@@ -45,6 +45,8 @@ const TaskItem = ({ task }) => {
         }}
       >
         {task.text}
+      </span>
+      <span><strong>Category:</strong> {task.categories}
       </span>
       <span>
         <strong>Created at:</strong> {formatDate(task.timestamp)}

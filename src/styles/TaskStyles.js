@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const TaskListItem = styled.li`
   // background-color: #e9edc9;
+  width: 800px;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   display: flex;
+  justify-content: center;
   align-items: center;
 
   input {
@@ -24,7 +26,7 @@ export const TaskListItem = styled.li`
 `;
 
 export const FormWrapper = styled.div`
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
 `;
 

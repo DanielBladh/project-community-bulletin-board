@@ -15,7 +15,7 @@ export const tasks = createSlice({
     {
       id: generateUUID(),
       text: "Watch video on actions & reducers",
-      complete: true,
+      complete: false,
       price: 500,
       dueDate: new Date().toISOString()
     },
