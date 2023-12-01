@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { formatDate, isTaskOverdue } from "../components/TaskItem";
+import { TaskDetailsContainer } from "../styles/TaskStyles";
 
 const TaskDetails = () => {
   const { taskId } = useParams();
@@ -16,7 +17,7 @@ const TaskDetails = () => {
 
   return (
     <>
-      <div>
+      <TaskDetailsContainer>
         <h2>Task Details</h2>
         <p>
           <strong>Task:</strong> {task.text}
@@ -59,10 +60,7 @@ const TaskDetails = () => {
         <p style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
           <strong>Timestamp:</strong> {formatDate(task.timestamp)}
         </p>
-        <p>
-          <button>Edit</button>
-        </p>
-      </div>
+      </TaskDetailsContainer>
     </>
   );
 };

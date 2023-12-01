@@ -84,3 +84,12 @@ export const TasklistContainer = styled.div`
   justify-content: center;
   margin-top: 20px; /* Adjust margin as needed */
 `;
+
+export const TaskDetailsContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+`;
