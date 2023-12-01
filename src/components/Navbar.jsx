@@ -18,14 +18,14 @@ const Navbar = () => {
           <h1>TaskHub</h1>
         </Link>
       </div>
-      <ul>
+      {/* <ul>
         <li>
           <Link to="/add">Add Task</Link>
         </li>
         <li>
           <Link to="/">View Tasks</Link>
         </li>
-      </ul>
+      </ul> */}
     </NavbarContainer>
   );
 };

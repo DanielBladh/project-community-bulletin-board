@@ -65,3 +65,12 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 3px;
 `;
+export const DeleteButton = styled.button`
+  cursor: pointer;
+  padding: 2px 5px;
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  margin-left: 1.5rem
+`;

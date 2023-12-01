@@ -2,11 +2,11 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
-  background-color: #d4a373;
+  background-color: #2f4050;
   color: white;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   .header-title {

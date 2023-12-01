@@ -14,6 +14,7 @@ import {
 
 const TaskForm = () => {
   const [taskText, setTaskText] = useState("");
+  const [descriptionText, setDescriptionText] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [categories, setCategories] = useState("");
   const [attachments, setAttachments] = useState(null);
@@ -32,6 +33,7 @@ const TaskForm = () => {
       dispatch(
         addTask({
           text: taskText,
+          description: descriptionText,
           dueDate: dueDate || null,
           categories: categories.split(","),
           attachments,
@@ -46,6 +48,7 @@ const TaskForm = () => {
       );
       // Reset form fields after submission
       setTaskText("");
+      setDescriptionText("");
       setDueDate("");
       setCategories("");
       setAttachments(null);
@@ -81,6 +84,15 @@ const TaskForm = () => {
               value={taskText}
               onChange={(e) => setTaskText(e.target.value)}
               placeholder="Enter task title"
+            />
+          </FormLabel>
+          <FormLabel>
+            Description:
+            <StyledInput
+              type="text"
+              value={descriptionText}
+              onChange={(e) => setDescriptionText(e.target.value)}
+              placeholder="Describe the task in more details"
             />
           </FormLabel>
 

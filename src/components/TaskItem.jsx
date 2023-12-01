@@ -1,15 +1,17 @@
 // TaskItem.jsx
 import React from "react";
 import { useDispatch } from "react-redux";
-import { TaskListItem } from "../styles/TaskStyles";
+import { TaskListItem, DeleteButton } from "../styles/TaskStyles";
 import { toggleTask, removeTask } from "../reducers/tasks";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const formatDate = (dateString) => {
   const options = {
     year: "numeric",
     month: "2-digit", // Display month as two digits
-    day: "2-digit",   // Display day as two digits
+    day: "2-digit", // Display day as two digits
   };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
@@ -32,11 +34,11 @@ const TaskItem = ({ task }) => {
 
   return (
     <TaskListItem>
-      <input
+      {/* <input
         type="checkbox"
         checked={task.complete}
         onChange={() => handleToggle(task.id)}
-      />
+      /> */}
       <span
         style={{
           textDecoration: task.complete ? "line-through" : "none",
@@ -53,10 +55,12 @@ const TaskItem = ({ task }) => {
         </span>
       )}
       <span>
-        <strong>Price:</strong> {task.price}kr
+        <strong>Price:</strong> ${task.price}
       </span>
       <Link to={`/tasks/${task.id}`}>View Details</Link>
-      {/* <button onClick={() => handleRemove(task.id)}>Remove</button> */}
+      <DeleteButton onClick={() => handleRemove(task.id)}>
+        <FontAwesomeIcon icon={faTrash} /> 
+      </DeleteButton>
     </TaskListItem>
   );
 };

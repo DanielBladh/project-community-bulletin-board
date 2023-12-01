@@ -7,8 +7,13 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskDetails from "./components/TaskDetails";
 import Navbar from "./components/Navbar";
-import WelcomeMessage from "./components/WelcomeMessage";
-import { AppContainer } from "./styles/AppStyles"; // Importing the AppContainer style
+import Sidebar from "./components/Sidebar";
+import { AppContainer } from "./styles/AppStyles";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+// Add Font Awesome icons to the library
+library.add(fas);
 
 const reducer = combineReducers({
   tasks: tasks.reducer,
@@ -21,8 +26,8 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
+        <Sidebar />
         <AppContainer>
-          <WelcomeMessage />
           <Routes>
             <Route path="/" element={<TaskList />} />
             <Route path="/tasks/:taskId" element={<TaskDetails />} />

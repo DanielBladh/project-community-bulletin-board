@@ -25,6 +25,7 @@ export const tasks = createSlice({
     addTask: (state, action) => {
       const {
         text,
+        description,
         dueDate,
         categories,
         attachments,
@@ -36,6 +37,7 @@ export const tasks = createSlice({
       state.push({
         id: generateUUID(),
         text,
+        description,
         complete: false,
         timestamp: new Date().toISOString(),
         dueDate: dueDate || null,
