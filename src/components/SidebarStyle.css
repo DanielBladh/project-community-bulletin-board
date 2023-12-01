@@ -2,6 +2,8 @@
   height: 100%;
   width: 250px;
   background-color: #2f4050;
+  display: flex;
+  position: relative;
 }
 
 .SidebarList {
@@ -13,14 +15,16 @@
 .SidebarList .row {
   width: 100%;
   list-style-type: none;
-  margin: 0%;
+  margin: 0;
+  padding: 0;
   display: flex;
   color: white;
+  box-sizing: border-box;
 }
 
 .SidebarList .row:hover {
   cursor: pointer;
-  background-color: #293846;
+  background-color: #244b70;
 }
 
 .SidebarList .row.active {
@@ -29,11 +33,24 @@
 
 .row #icon {
   flex: 30%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure a fixed height for the icon container */
 }
 
 .row #title {
   flex: 70%;
-  padding-left: 10px; /* Add padding to separate icon and title */
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  text-align: left;
+  line-height: 50px; /* Adjust the line-height for vertical centering */
+}
+
+.nav-links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }

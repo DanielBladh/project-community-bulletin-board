@@ -18,8 +18,10 @@ function Sidebar() {
               to={val.link}
               style={{ textDecoration: "none", color: "white" }}
             >
-              <div id="icon">{val.icon}</div>
-              <div id="title">{val.title}</div>
+              <div className="nav-links">
+                <div id="icon">{val.icon}</div>
+                <div id="title">{val.title}</div>
+              </div>
             </Link>
           </li>
         ))}

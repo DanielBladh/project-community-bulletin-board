@@ -76,3 +76,11 @@ export const DeleteButton = styled.button`
   border-radius: 3px;
   margin-left: 1.5rem
 `;
+
+export const TasklistContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+`;
