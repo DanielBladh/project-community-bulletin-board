@@ -16,8 +16,6 @@ You should be able to edit and update tasks.
 Task Counts:
 Display a count of all available tasks or all uncompleted tasks (or both).
 
-<!-- Your app should show a count of either all tasks or all uncompleted tasks (or both). -->
-
 Stretch goals
 Timestamp for Tasks:
 Add a timestamp for each task indicating when it was created. Display the timestamp as a formatted date while storing it as a raw date.

@@ -1,8 +1,12 @@
-// TaskItem.jsx
 import React from "react";
 import { useDispatch } from "react-redux";
-import { TaskListItem, DeleteButton } from "../styles/TaskStyles";
+import {
+  TaskListItem,
+  DeleteButton,
+  ViewDetailsLink,
+} from "../styles/TaskStyles";
 import { toggleTask, removeTask } from "../reducers/tasks";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +19,10 @@ export const formatDate = (dateString) => {
   };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const isTaskOverdue = (dueDate) => {
   if (!dueDate) return false;
@@ -39,17 +47,14 @@ const TaskItem = ({ task }) => {
         checked={task.complete}
         onChange={() => handleToggle(task.id)}
       /> */}
-      <span
-        style={{
-          textDecoration: task.complete ? "line-through" : "none",
-        }}
-      >
+      <span>
         {task.text}
       </span>
-      <span><strong>Category:</strong> {task.categories}
+      <span>
+        <strong>Category</strong> {task.categories}
       </span>
       <span>
-        <strong>Created at:</strong> {formatDate(task.timestamp)}
+        <strong>Created at</strong> {formatDate(task.timestamp)}
       </span>
       {task.dueDate && (
         <span style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
@@ -57,11 +62,14 @@ const TaskItem = ({ task }) => {
         </span>
       )}
       <span>
-        <strong>Price:</strong> ${task.price}
+        <strong>Price</strong>
+        <br /> ${task.price}
       </span>
-      <Link to={`/tasks/${task.id}`}>View Details</Link>
+      <StyledLink to={`/tasks/${task.id}`}>
+        <ViewDetailsLink>View Details</ViewDetailsLink>
+      </StyledLink>
       <DeleteButton onClick={() => handleRemove(task.id)}>
-        <FontAwesomeIcon icon={faTrash} /> 
+        <FontAwesomeIcon icon={faTrash} />
       </DeleteButton>
     </TaskListItem>
   );

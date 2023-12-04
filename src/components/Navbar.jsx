@@ -11,21 +11,21 @@ const Navbar = () => {
         <img
           src={logo}
           alt="Taskhub logo"
-          style={{ width: "40px", height: "40px", filter: "invert(100%)" }}
+          style={{ width: "40px", height: "35px", filter: "invert(100%)" }}
         />
 
         <Link to="/" style={{textDecoration: "none", color: "white"}}>
           <h1>TaskHub</h1>
         </Link>
       </div>
-      {/* <ul>
+      <ul>
         <li>
           <Link to="/add">Add Task</Link>
         </li>
         <li>
           <Link to="/">View Tasks</Link>
         </li>
-      </ul> */}
+      </ul>
     </NavbarContainer>
   );
 };

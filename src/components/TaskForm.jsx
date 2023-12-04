@@ -10,6 +10,7 @@ import {
   StyledInput,
   StyledSelect,
   StyledButton,
+  CheckboxContainer,
 } from "../styles/TaskStyles";
 
 const TaskForm = () => {
@@ -22,6 +23,8 @@ const TaskForm = () => {
   const [requirements, setRequirements] = useState("");
   const [preferEmail, setPreferEmail] = useState(false);
   const [preferPhone, setPreferPhone] = useState(false);
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [securityInfo, setSecurityInfo] = useState("");
   const [showGuidelines, setShowGuidelines] = useState(true);
 
@@ -29,7 +32,11 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskText.trim() !== "") {
+    // Check if either email or phone is filled
+    if (
+      (preferEmail && email.trim() !== "") ||
+      (preferPhone && phone.trim() !== "")
+    ) {
       dispatch(
         addTask({
           text: taskText,
@@ -40,8 +47,8 @@ const TaskForm = () => {
           price,
           requirements,
           communication: {
-            email: preferEmail,
-            phone: preferPhone,
+            email: preferEmail ? email : null,
+            phone: preferPhone ? phone : null,
           },
           securityInfo,
         })
@@ -54,9 +61,14 @@ const TaskForm = () => {
       setAttachments(null);
       setPrice("");
       setRequirements("");
+      setEmail("");
+      setPhone("");
       setPreferEmail(false);
       setPreferPhone(false);
       setSecurityInfo("");
+    } else {
+      // Display an error message or handle it as appropriate
+      alert("Please fill either email or phone.");
     }
   };
 
@@ -84,6 +96,7 @@ const TaskForm = () => {
               value={taskText}
               onChange={(e) => setTaskText(e.target.value)}
               placeholder="Enter task title"
+              required
             />
           </FormLabel>
           <FormLabel>
@@ -93,6 +106,7 @@ const TaskForm = () => {
               value={descriptionText}
               onChange={(e) => setDescriptionText(e.target.value)}
               placeholder="Describe the task in more details"
+              required
             />
           </FormLabel>
 
@@ -103,6 +117,7 @@ const TaskForm = () => {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
+              required
             />
           </FormLabel>
 
@@ -113,6 +128,7 @@ const TaskForm = () => {
               type="text"
               value={categories}
               onChange={(e) => setCategories(e.target.value)}
+              required
             >
               <option value="" disabled>
                 Select a category
@@ -142,6 +158,7 @@ const TaskForm = () => {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               placeholder="Enter price"
+              required
             />
           </FormLabel>
 
@@ -154,24 +171,42 @@ const TaskForm = () => {
               placeholder="Enter additional requirements"
             />
           </FormLabel>
-
-          {/* Communication Preferences */}
           <FormLabel>
+            {/* Communication Preferences */}
             Communication Preferences:
-            <StyledInput
-              type="checkbox"
-              checked={preferEmail}
-              onChange={() => setPreferEmail(!preferEmail)}
-            />
-            Email
-            <StyledInput
-              type="checkbox"
-              checked={preferPhone}
-              onChange={() => setPreferPhone(!preferPhone)}
-            />
-            Phone
+            <CheckboxContainer>
+              <StyledInput
+                type="checkbox"
+                checked={preferEmail}
+                onChange={() => setPreferEmail(!preferEmail)}
+              />
+              <span>Email</span>
+              {preferEmail && (
+                <StyledInput
+                  type="text"
+                  placeholder="Enter email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              )}
+            </CheckboxContainer>
+            <CheckboxContainer>
+              <StyledInput
+                type="checkbox"
+                checked={preferPhone}
+                onChange={() => setPreferPhone(!preferPhone)}
+              />
+              <span>Phone</span>
+              {preferPhone && (
+                <StyledInput
+                  type="text"
+                  placeholder="Enter phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              )}
+            </CheckboxContainer>
           </FormLabel>
-
           {/* Submit Button */}
           <StyledButton type="submit">Add Task</StyledButton>
         </StyledForm>

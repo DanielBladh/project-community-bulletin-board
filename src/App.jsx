@@ -26,7 +26,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <AppContainer>
           <Routes>
             <Route path="/" element={<TaskList />} />

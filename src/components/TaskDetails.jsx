@@ -15,6 +15,28 @@ const TaskDetails = () => {
     return <div>Task not found</div>;
   }
 
+  const renderCommunicationPreferences = () => {
+    if (task.communication) {
+      const emailText = task.communication.email
+        ? `Email: ${task.communication.email}`
+        : "Email: Not specified";
+      const phoneText = task.communication.phone
+        ? `Phone: ${task.communication.phone}`
+        : "Phone: Not specified";
+
+      return (
+        <>
+          <p>
+            <strong>Communication Preferences:</strong>
+          </p>
+          <p>{emailText}</p>
+          <p>{phoneText}</p>
+        </>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       <TaskDetailsContainer>
@@ -23,10 +45,12 @@ const TaskDetails = () => {
           <strong>Task:</strong> {task.text}
         </p>
         <p>
-          <strong>Description:</strong>
-           {task.description}
+          <strong>Description:</strong> {task.description}
         </p>
         <p>
+          <strong>Created at:</strong> {formatDate(task.timestamp)}
+        </p>
+        <p style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
           <strong>Due Date:</strong>{" "}
           {task.dueDate ? formatDate(task.dueDate) : "Not specified"}
         </p>
@@ -46,19 +70,10 @@ const TaskDetails = () => {
           <strong>Requirements:</strong>{" "}
           {task.requirements || "No specific requirements"}
         </p>
-        <p>
-          <strong>Communication Preferences:</strong>{" "}
-          {task.communication &&
-            `Email: ${task.communication.email ? "Yes" : "No"}, Phone: ${
-              task.communication.phone ? "Yes" : "No"
-            }`}
-        </p>
+        {renderCommunicationPreferences()}
         <p>
           <strong>Security Info:</strong>{" "}
           {task.securityInfo || "No security information provided"}
-        </p>
-        <p style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
-          <strong>Timestamp:</strong> {formatDate(task.timestamp)}
         </p>
       </TaskDetailsContainer>
     </>

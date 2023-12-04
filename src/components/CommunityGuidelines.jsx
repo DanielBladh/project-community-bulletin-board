@@ -8,7 +8,7 @@ const GuidelinesContainer = styled.div`
 `;
 
 const RuleList = styled.ul`
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   list-style-type: none;
   padding: 0;
   display: flex;
