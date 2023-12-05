@@ -1,12 +1,12 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavbarContainer } from "../styles/NavbarStyles";
+import "../styles/NavbarStyles.css";
 import logo from "../assets/taskhub.png";
 
 const Navbar = () => {
   return (
-    <NavbarContainer>
+    <div className="NavbarContainer">
       <div className="header-title">
         <img
           src={logo}
@@ -14,7 +14,7 @@ const Navbar = () => {
           style={{ width: "40px", height: "35px", filter: "invert(100%)" }}
         />
 
-        <Link to="/" style={{textDecoration: "none", color: "white"}}>
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
           <h1>TaskHub</h1>
         </Link>
       </div>
@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to="/">View Tasks</Link>
         </li>
       </ul>
-    </NavbarContainer>
+    </div>
   );
 };
 
