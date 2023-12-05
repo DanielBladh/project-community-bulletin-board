@@ -2,16 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../reducers/tasks";
 import CommunityGuidelines from "./CommunityGuidelines";
-import {
-  FormWrapper,
-  FormTitle,
-  StyledForm,
-  FormLabel,
-  StyledInput,
-  StyledSelect,
-  StyledButton,
-  CheckboxContainer,
-} from "../styles/TaskStyles";
+import "../styles/styles.css";
 
 const TaskForm = () => {
   const [taskText, setTaskText] = useState("");
@@ -80,51 +71,56 @@ const TaskForm = () => {
     "Outdoor Help",
     "Home Repairs",
     "Painting",
+    "Other",
   ];
 
   return (
     <>
       <CommunityGuidelines />
-      <FormWrapper>
-        <FormTitle>Create Task</FormTitle>
-        <StyledForm onSubmit={handleSubmit}>
+      <div className="FormWrapper">
+        <div className="FormTitle">Create Task</div>
+        <form className="StyledForm" onSubmit={handleSubmit}>
           {/* Task Details */}
-          <FormLabel>
+          <label className="FormLabel">
             Task:
-            <StyledInput
+            <input
+              className="StyledInput"
               type="text"
               value={taskText}
               onChange={(e) => setTaskText(e.target.value)}
               placeholder="Enter task title"
               required
             />
-          </FormLabel>
-          <FormLabel>
+          </label>
+          <label className="FormLabel">
             Description:
-            <StyledInput
+            <input
+              className="StyledInput"
               type="text"
               value={descriptionText}
               onChange={(e) => setDescriptionText(e.target.value)}
               placeholder="Describe the task in more details"
               required
             />
-          </FormLabel>
+          </label>
 
           {/* Due Date */}
-          <FormLabel>
+          <label className="FormLabel">
             Due Date:
-            <StyledInput
+            <input
+              className="StyledInput"
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
               required
             />
-          </FormLabel>
+          </label>
 
           {/* Task Category */}
-          <FormLabel>
+          <label className="FormLabel">
             Categories:
-            <StyledSelect
+            <select
+              className="StyledSelect"
               type="text"
               value={categories}
               onChange={(e) => setCategories(e.target.value)}
@@ -138,79 +134,88 @@ const TaskForm = () => {
                   {x}
                 </option>
               ))}
-            </StyledSelect>
-          </FormLabel>
+            </select>
+          </label>
 
           {/* Attachments */}
-          <FormLabel>
+          <label className="FormLabel">
             Attachments:
-            <StyledInput
+            <input
+              className="StyledInput"
               type="file"
               onChange={(e) => setAttachments(e.target.files[0])}
             />
-          </FormLabel>
+          </label>
 
           {/* Pricing */}
-          <FormLabel>
+          <label className="FormLabel">
             Price:
-            <StyledInput
+            <input
+              className="StyledInput"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               placeholder="Enter price"
               required
             />
-          </FormLabel>
+          </label>
 
           {/* Requirements */}
-          <FormLabel>
+          <label className="FormLabel">
             Requirements:
-            <StyledInput
+            <input
+              className="StyledInput"
               value={requirements}
               onChange={(e) => setRequirements(e.target.value)}
               placeholder="Enter additional requirements"
             />
-          </FormLabel>
-          <FormLabel>
+          </label>
+          <label className="FormLabel">
             {/* Communication Preferences */}
             Communication Preferences:
-            <CheckboxContainer>
-              <StyledInput
+            <div className="CheckboxContainer">
+              <input
+                className="StyledInput"
                 type="checkbox"
                 checked={preferEmail}
                 onChange={() => setPreferEmail(!preferEmail)}
               />
               <span>Email</span>
               {preferEmail && (
-                <StyledInput
+                <input
+                  className="StyledInput"
                   type="text"
                   placeholder="Enter email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               )}
-            </CheckboxContainer>
-            <CheckboxContainer>
-              <StyledInput
+            </div>
+          </label>
+          <label className="FormLabel">
+            <div className="CheckboxContainer">
+              <input
+                className="StyledInput"
                 type="checkbox"
                 checked={preferPhone}
                 onChange={() => setPreferPhone(!preferPhone)}
               />
               <span>Phone</span>
               {preferPhone && (
-                <StyledInput
+                <input
+                  className="StyledInput"
                   type="text"
                   placeholder="Enter phone number"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
               )}
-            </CheckboxContainer>
-          </FormLabel>
+            </div>
+          </label>
           {/* Submit Button */}
-          <StyledButton type="submit">Add Task</StyledButton>
-        </StyledForm>
-      </FormWrapper>
+          <button className="StyledButton" type="submit">Add Task</button>
+        </form>
+      </div>
     </>
   );
 };

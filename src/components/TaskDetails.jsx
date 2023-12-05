@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { formatDate, isTaskOverdue } from "../components/TaskItem";
-import { TaskDetailsContainer } from "../styles/TaskStyles";
+import "../styles/styles.css"
 
 const TaskDetails = () => {
   const { taskId } = useParams();
@@ -39,7 +39,7 @@ const TaskDetails = () => {
 
   return (
     <>
-      <TaskDetailsContainer>
+      <div className="TaskDetailsContainer">
         <h2>Task Details</h2>
         <p>
           <strong>Task:</strong> {task.text}
@@ -75,7 +75,7 @@ const TaskDetails = () => {
           <strong>Security Info:</strong>{" "}
           {task.securityInfo || "No security information provided"}
         </p>
-      </TaskDetailsContainer>
+      </div>
     </>
   );
 };

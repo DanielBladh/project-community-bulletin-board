@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import TaskItem from "./TaskItem";
 import WelcomeMessage from "./WelcomeMessage";
-import { TasklistContainer } from "../styles/TaskStyles";
+import "../styles/styles.css";
 
 const TaskList = () => {
   const tasks = useSelector((state) => state.tasks);
@@ -15,6 +15,7 @@ const TaskList = () => {
     "Outdoor Help",
     "Home Repairs",
     "Painting",
+    "Other",
   ];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -30,14 +31,14 @@ const TaskList = () => {
   return (
     <>
       <WelcomeMessage />
-      <TasklistContainer>
+      <div className="TasklistContainer">
         <h2>Task List</h2>
         <div>
           <label>Filter by Category: </label>
           <select
             value={selectedCategory}
             onChange={(e) => handleCategoryChange(e.target.value)}
-            style={{marginBottom: "1.5rem"}}
+            style={{ marginBottom: "1.5rem" }}
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -57,7 +58,7 @@ const TaskList = () => {
             ))}
           </ul>
         )}
-      </TasklistContainer>
+      </div>
     </>
   );
 };
