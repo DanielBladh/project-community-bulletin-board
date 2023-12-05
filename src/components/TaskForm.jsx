@@ -213,7 +213,9 @@ const TaskForm = () => {
             </div>
           </label>
           {/* Submit Button */}
-          <button className="StyledButton" type="submit">Add Task</button>
+          <button className="StyledButton" type="submit">
+            Add Task
+          </button>
         </form>
       </div>
     </>

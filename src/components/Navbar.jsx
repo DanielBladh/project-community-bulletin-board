@@ -13,19 +13,20 @@ const Navbar = () => {
           alt="Taskhub logo"
           style={{ width: "40px", height: "35px", filter: "invert(100%)" }}
         />
-
         <Link to="/" style={{ textDecoration: "none", color: "white" }}>
           <h1>TaskHub</h1>
         </Link>
       </div>
-      <ul>
-        <li>
-          <Link to="/add">Add Task</Link>
-        </li>
-        <li>
-          <Link to="/">View Tasks</Link>
-        </li>
-      </ul>
+      <div className="nav-links">
+        <ul>
+          <li>
+            <Link to="/add">Add Task</Link>
+          </li>
+          <li>
+            <Link to="/">View Tasks</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

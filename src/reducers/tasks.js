@@ -79,6 +79,7 @@ export const tasks = createSlice({
         communication,
         securityInfo,
       } = action.payload;
+      
       state.push({
         id: generateUUID(),
         text,
