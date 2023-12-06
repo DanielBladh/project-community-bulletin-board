@@ -4,7 +4,7 @@
 }
 
 .TaskListItem {
-  width: 800px;
+  max-width: 800px;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;
@@ -20,7 +20,6 @@
 
 .TaskListItem span {
   flex: 1;
-  margin-right: 10px;
 }
 
 .TaskListItem button {
@@ -34,8 +33,7 @@
 .ViewDetailsLink {
   color: white;
   cursor: pointer;
-  padding: 2px 5px;
-  border: 1px solid #007bff;
+  padding: 0px 5px;
   border-radius: 5px;
   background-color: #007bff;
 }
@@ -121,4 +119,10 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .FormWrapper {
+    width: 300px;
+  }
 }
