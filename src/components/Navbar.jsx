@@ -14,12 +14,13 @@ const Navbar = () => {
 
   return (
     <section className="top-nav">
-      <div>
+      <div className="logo-container">
         <img
           src={logo}
           alt="Taskhub logo"
           style={{ width: "40px", height: "35px", filter: "invert(100%)" }}
         />
+        <Link className="title-link" to="/"><h3>TaskHub</h3></Link>
       </div>
 
       <input

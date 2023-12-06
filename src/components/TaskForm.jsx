@@ -161,7 +161,7 @@ const TaskForm = () => {
           </label>
 
           {/* Requirements */}
-          <label className="FormLabel">
+          {/* <label className="FormLabel">
             Requirements:
             <input
               className="StyledInput"
@@ -169,7 +169,7 @@ const TaskForm = () => {
               onChange={(e) => setRequirements(e.target.value)}
               placeholder="Enter additional requirements"
             />
-          </label>
+          </label> */}
           <label className="FormLabel">
             {/* Communication Preferences */}
             Communication Preferences:

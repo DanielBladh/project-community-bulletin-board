@@ -65,10 +65,10 @@ const TaskDetails = () => {
           <strong>Price:</strong>{" "}
           {task.price ? `$${task.price}` : "Not specified"}
         </p>
-        <p>
+        {/* <p>
           <strong>Requirements:</strong>{" "}
           {task.requirements || "No specific requirements"}
-        </p>
+        </p> */}
         {renderCommunicationPreferences()}
         <p>
           <strong>Security Info:</strong>{" "}

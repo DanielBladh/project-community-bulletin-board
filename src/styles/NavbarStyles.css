@@ -9,6 +9,16 @@
   padding: 1em;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center; 
+}
+
+.title-link {
+  text-decoration: none;
+  color: white;
+}
+
 .menu {
   display: flex;
   flex-direction: row;

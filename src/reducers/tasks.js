@@ -21,6 +21,10 @@ export const tasks = createSlice({
       complete: false,
       price: 50,
       dueDate: new Date().toISOString(),
+      communication: {
+        email: "example@example.com",
+        phone: "123-456-7890",
+      },
     },
     {
       id: generateUUID(),
@@ -32,6 +36,10 @@ export const tasks = createSlice({
       complete: false,
       price: 75,
       dueDate: new Date("2023-12-10T18:00:00.000Z").toISOString(),
+      communication: {
+        email: "example@example.com",
+        phone: "123-456-7890",
+      },
     },
     {
       id: generateUUID(),
@@ -42,6 +50,10 @@ export const tasks = createSlice({
       complete: false,
       price: 60,
       dueDate: new Date("2023-12-15T14:00:00.000Z").toISOString(),
+      communication: {
+        email: "example@example.com",
+        phone: "123-456-7890",
+      },
     },
     {
       id: generateUUID(),
@@ -53,6 +65,10 @@ export const tasks = createSlice({
       complete: false,
       price: 40,
       dueDate: new Date("2023-12-08T16:30:00.000Z").toISOString(),
+      communication: {
+        email: "example@example.com",
+        phone: "123-456-7890",
+      },
     },
     {
       id: generateUUID(),
@@ -64,6 +80,10 @@ export const tasks = createSlice({
       complete: false,
       price: 55,
       dueDate: new Date("2023-12-12T11:00:00.000Z").toISOString(),
+      communication: {
+        email: "example@example.com",
+        phone: "123-456-7890",
+      },
     },
   ],
   reducers: {
@@ -79,7 +99,7 @@ export const tasks = createSlice({
         communication,
         securityInfo,
       } = action.payload;
-      
+
       state.push({
         id: generateUUID(),
         text,
