@@ -36,16 +36,17 @@ const Navbar = () => {
       </label>
 
       <ul className={`menu ${showMenu ? "show" : ""}`}>
+      <li>
+          <Link to="/" onClick={toggleMenu}>
+            View Tasks
+          </Link>
+        </li>
         <li>
           <Link to="/add" onClick={toggleMenu}>
             Add Task
           </Link>
         </li>
-        <li>
-          <Link to="/" onClick={toggleMenu}>
-            View Tasks
-          </Link>
-        </li>
+
       </ul>
     </section>
   );

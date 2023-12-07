@@ -46,13 +46,14 @@ const TaskList = () => {
               </option>
             ))}
           </select>
+          <p className="task-length">{`Number of tasks: ${filteredTasks.length}`}</p>
         </div>
         {filteredTasks.length === 0 ? (
           <p style={{ marginTop: "2rem", fontWeight: "bold" }}>
             No tasks found for the selected category.
           </p>
         ) : (
-          <ul style={{ margin: 0, padding: 0 }}>
+          <ul className="TaskList-ul" style={{ margin: 0, padding: 0 }}>
             {filteredTasks.map((task) => (
               <TaskItem key={task.id} task={task} />
             ))}

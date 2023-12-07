@@ -14,6 +14,11 @@
   align-items: center;
 }
 
+.task-length {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .TaskListItem input {
   margin-right: 10px;
 }
@@ -110,6 +115,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 2rem;
 }
 
 .TaskDetailsContainer {
@@ -122,6 +128,11 @@
 }
 
 @media (max-width: 700px) {
+  .FormWrapper {
+    width: 400px;
+  }
+}
+@media (max-width: 400px) {
   .FormWrapper {
     width: 300px;
   }
