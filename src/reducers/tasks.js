@@ -72,7 +72,7 @@ export const tasks = createSlice({
     },
     {
       id: generateUUID(),
-      text: "Outdoor Help - Garden Cleanup",
+      text: "Garden Cleanup",
       description:
         "Assist with cleaning up the garden, trimming plants, and removing debris.",
       categories: ["Outdoor Help"],

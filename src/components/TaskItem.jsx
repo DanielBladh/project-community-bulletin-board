@@ -57,12 +57,14 @@ const TaskItem = ({ task }) => {
         <strong>Price</strong>
         <br /> ${task.price}
       </span>
+      <div>
       <Link to={`/tasks/${task.id}`}>
-        <span className="ViewDetailsLink">View Details</span>
+        <span className="ViewDetailsLink">Details</span>
       </Link>
       <button className="DeleteButton" onClick={() => handleRemove(task.id)}>
         <FontAwesomeIcon icon={faTrash} />
       </button>
+      </div>
     </div>
   );
 };

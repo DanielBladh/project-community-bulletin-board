@@ -3,8 +3,17 @@
   margin: 0 auto;
 }
 
+.TasklistContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .TaskListItem {
-  max-width: 800px;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;
@@ -12,9 +21,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .TaskList-ul {
+  width: 100%;
+  max-width: 900px;
   padding: 0;
   margin: 0;
 }
@@ -114,15 +127,6 @@
   margin-left: 1.5rem;
 }
 
-.TasklistContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 2rem;
-}
-
 .TaskDetailsContainer {
   max-width: 800px;
   margin: 0 auto;
@@ -132,14 +136,26 @@
   margin-top: 20px;
 }
 
+footer {
+  max-width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
+
 @media (max-width: 700px) {
   .FormWrapper {
     width: 400px;
   }
   .TaskListItem {
     display: flex;
-    flex-direction: column;
     text-align: center;
+    font-size: smaller;
   }
   .TaskListItem .DeleteButton {
     margin: 0;
@@ -148,5 +164,14 @@
 @media (max-width: 400px) {
   .FormWrapper {
     width: 300px;
+  }
+  .TaskListItem {
+    font-size: xx-small;
+  }
+  .TaskListItem .DeleteButton {
+    width: fit-content;
+    height: fit-content;
+    padding: 1px 1px;
+    margin: 5px;
   }
 }

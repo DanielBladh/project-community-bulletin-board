@@ -1,7 +1,7 @@
 .WelcomeContainer {
-  padding: 20px;
   text-align: center;
   margin-bottom: 3rem;
+  
 }
 
 .PopularTasksContainer {
@@ -56,15 +56,6 @@
   .PopularTasksGrid {
     grid-template-columns: repeat(2, 2fr);
     grid-template-rows: repeat(2, auto);
-  }
-  .WelcomeContainer h1 {
-    font-size: 16px;
-  }
-  .WelcomeContainer h3 {
-    font-size: 12px;
-  }
-  .WelcomeContainer p {
-    font-size: 10px;
   }
 }
 
