@@ -14,6 +14,11 @@
   align-items: center;
 }
 
+.TaskList-ul {
+  padding: 0;
+  margin: 0;
+}
+
 .task-length {
   text-align: center;
   margin-bottom: 5px;
@@ -130,6 +135,14 @@
 @media (max-width: 700px) {
   .FormWrapper {
     width: 400px;
+  }
+  .TaskListItem {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .TaskListItem .DeleteButton {
+    margin: 0;
   }
 }
 @media (max-width: 400px) {

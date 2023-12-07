@@ -53,7 +53,7 @@ const TaskList = () => {
             No tasks found for the selected category.
           </p>
         ) : (
-          <ul className="TaskList-ul" style={{ margin: 0, padding: 0 }}>
+          <ul className="TaskList-ul">
             {filteredTasks.map((task) => (
               <TaskItem key={task.id} task={task} />
             ))}

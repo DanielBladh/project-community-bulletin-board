@@ -33,16 +33,24 @@ const TaskItem = ({ task }) => {
 
   return (
     <div className="TaskListItem">
-      <span>{task.text}</span>
       <span>
-        <strong>Category</strong> {task.categories}
+        <strong>Task</strong>
+        <br />
+        {task.text}
       </span>
       <span>
-        <strong>Created at</strong> {formatDate(task.timestamp)}
+        <strong>Category</strong>
+        <br />
+        {task.categories}
+      </span>
+      <span>
+        <strong>Created at</strong>
+        <br /> {formatDate(task.timestamp)}
       </span>
       {task.dueDate && (
         <span style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
-          <strong>Due Date:</strong> {formatDate(task.dueDate)}
+          <strong>Due Date:</strong>
+          <br /> {formatDate(task.dueDate)}
         </span>
       )}
       <span>
