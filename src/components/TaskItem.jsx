@@ -5,6 +5,7 @@ import { toggleTask, removeTask } from "../reducers/tasks";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import SocialMediaShareButton from "./SocialMediaShareButton";
 
 export const formatDate = (dateString) => {
   const options = {
@@ -30,6 +31,9 @@ const TaskItem = ({ task }) => {
   const handleRemove = (taskId) => {
     dispatch(removeTask(taskId));
   };
+
+  // Define taskUrl here
+  const taskUrl = window.location.href;
 
   return (
     <div className="TaskListItem">
@@ -57,13 +61,23 @@ const TaskItem = ({ task }) => {
         <strong>Price</strong>
         <br /> ${task.price}
       </span>
-      <div>
-      <Link to={`/tasks/${task.id}`}>
-        <span className="ViewDetailsLink">Details</span>
-      </Link>
-      <button className="DeleteButton" onClick={() => handleRemove(task.id)}>
-        <FontAwesomeIcon icon={faTrash} />
-      </button>
+      <div className="detail-social-delete-container">
+        <Link to={`/tasks/${task.id}`}>
+          <span className="ViewDetailsLink">Details</span>
+        </Link>
+        {/* Example: Twitter Share Button */}
+        <SocialMediaShareButton
+          platform="twitter"
+          shareContent={`Check out this task: ${task.text} ${window.location.href}`}
+        />
+        {/* Example: LinkedIn Share Button */}
+        <SocialMediaShareButton
+          platform="linkedin"
+          shareContent={{ url: taskUrl }}
+        />
+        <button className="DeleteButton" onClick={() => handleRemove(task.id)}>
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
       </div>
     </div>
   );

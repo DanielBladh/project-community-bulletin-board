@@ -49,6 +49,32 @@
   cursor: pointer;
 }
 
+.detail-social-delete-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  color: #0d6efd;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center; 
+}
+
+.social-icon {
+  font-size: 1.5em; /* Adjust the size as needed */
+}
+
+.icon-button:hover {
+
+  color: #032963; 
+}
+
 .TaskListItem a {
   text-decoration: none;
 }
@@ -173,5 +199,11 @@ footer {
     height: fit-content;
     padding: 1px 1px;
     margin: 5px;
+  }
+  .social-icon {
+    font-size: 0.8rem;
+  }
+  .DeleteButton {
+    font-size: 0.8rem;
   }
 }
