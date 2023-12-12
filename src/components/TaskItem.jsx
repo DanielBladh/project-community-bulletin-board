@@ -69,13 +69,15 @@ const TaskItem = ({ task }) => {
         <SocialMediaShareButton
           platform="twitter"
           shareContent={`Check out this task: ${task.text} ${window.location.href}`}
+          alt="Share on twitter"
         />
         {/* Example: LinkedIn Share Button */}
         <SocialMediaShareButton
           platform="linkedin"
           shareContent={{ url: taskUrl }}
+          alt="Share on LinkedIn"
         />
-        <button className="DeleteButton" onClick={() => handleRemove(task.id)}>
+        <button className="DeleteButton" onClick={() => handleRemove(task.id)} alt="Delete-item-button">
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </div>

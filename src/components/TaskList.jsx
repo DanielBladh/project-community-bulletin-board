@@ -34,8 +34,9 @@ const TaskList = () => {
       <div className="TasklistContainer">
         <h2>Task List</h2>
         <div>
-          <label>Filter by Category: </label>
+          <label for="filterCategory">Filter by Category: </label>
           <select
+            id="filterCategory"
             value={selectedCategory}
             onChange={(e) => handleCategoryChange(e.target.value)}
             style={{ marginBottom: "1.5rem" }}

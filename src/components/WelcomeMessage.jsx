@@ -30,7 +30,7 @@ const WelcomeMessage = () => {
     <div className="WelcomeContainer">
       <div>
         <h1>Welcome to our Community Bulletin Board!</h1>
-        <h3>Creates more time for life!</h3>
+        <h2>Creates more time for life!</h2>
         <p>
           Connect with neighbors, collaborate on tasks, and stay informed about
           community events.
