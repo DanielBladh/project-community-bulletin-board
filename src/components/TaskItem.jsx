@@ -67,12 +67,14 @@ const TaskItem = ({ task }) => {
         </Link>
         {/* Example: Twitter Share Button */}
         <SocialMediaShareButton
+          id="share-button-twitter"
           platform="twitter"
           shareContent={`Check out this task: ${task.text} ${window.location.href}`}
           alt="Share on twitter"
         />
         {/* Example: LinkedIn Share Button */}
         <SocialMediaShareButton
+        id="share-button-linkedin"
           platform="linkedin"
           shareContent={{ url: taskUrl }}
           alt="Share on LinkedIn"
