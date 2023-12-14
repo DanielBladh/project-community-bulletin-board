@@ -54,11 +54,9 @@ const TaskItem = ({ task }) => {
         <div>
           <strong>Created at:</strong> {formatDate(task.timestamp)}
         </div>
-        {task.dueDate && (
-          <div style={{ color: isTaskOverdue(task.dueDate) ? "red" : "#333" }}>
-            <strong>Due Date:</strong> {formatDate(task.dueDate)}
-          </div>
-        )}
+        <div>
+          <strong>Due Date:</strong> {formatDate(task.dueDate)}
+        </div>
         <div>
           <strong>Price:</strong> ${task.price}
         </div>
@@ -71,14 +69,14 @@ const TaskItem = ({ task }) => {
           id="share-button-twitter"
           platform="twitter"
           shareContent={`Check out this task: ${task.text} ${taskUrl}`}
-          aria-label="Share on Twitter"
+          aria-label="Share this task on Twitter"
           role="button"
         />
         <SocialMediaShareButton
           id="share-button-linkedin"
           platform="linkedin"
           shareContent={{ url: taskUrl }}
-          aria-label="Share on LinkedIn"
+          aria-label="Share this task on LinkedIn"
           role="button"
         />
         <button

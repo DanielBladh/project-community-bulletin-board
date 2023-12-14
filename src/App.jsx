@@ -7,8 +7,6 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskDetails from "./components/TaskDetails";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
 import "./styles/styles.css"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -27,7 +25,6 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
-        {/* <Sidebar /> */}
         <div className="AppContainer">
           <Routes>
             <Route path="/" element={<TaskList />} />
@@ -35,7 +32,6 @@ const App = () => {
             <Route path="/add" element={<TaskForm />} />
           </Routes>
         </div>
-        {/* <Footer /> */}
       </Router>
     </Provider>
   );

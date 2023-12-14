@@ -41,10 +41,9 @@ const WelcomeMessage = () => {
             {popularTasks.map((task, index) => (
               <Link className="TaskFormLink" key={index} to="/add">
                 <div className="PopularTaskItem" onClick={scrollToTaskForm}>
-                  <img src={task.image} alt={task.name} />
+                  <img src={task.image} alt={`Create ${task.name} task`} />
                   <div>
                     <strong>{task.name}</strong>
-                    
                   </div>
                 </div>
               </Link>
