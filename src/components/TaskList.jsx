@@ -32,21 +32,23 @@ const TaskList = () => {
     <>
       <WelcomeMessage />
       <div className="TasklistContainer">
-        <h2>Task List</h2>
-        <div>
-          <label for="filterCategory">Filter by Category: </label>
-          <select
-            id="filterCategory"
-            value={selectedCategory}
-            onChange={(e) => handleCategoryChange(e.target.value)}
-            style={{ marginBottom: "1.5rem" }}
-          >
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+        <div className="tasklist-info">
+          <h2>Task List</h2>
+          <div>
+            <label htmlFor="filterCategory">Filter by Category: </label>
+            <select
+              id="filterCategory"
+              value={selectedCategory}
+              onChange={(e) => handleCategoryChange(e.target.value)}
+              style={{ marginBottom: "1.5rem" }}
+            >
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
           <p className="task-length">{`Number of tasks: ${filteredTasks.length}`}</p>
         </div>
         {filteredTasks.length === 0 ? (
@@ -54,11 +56,13 @@ const TaskList = () => {
             No tasks found for the selected category.
           </p>
         ) : (
-          <ul className="TaskList-ul">
+          <div className="TaskListGrid">
             {filteredTasks.map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <div key={task.id} className="TaskListCard">
+                <TaskItem task={task} />
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </div>
     </>

@@ -6,7 +6,7 @@ import furnitureImage from "../assets/furniture.jpeg";
 import mountTVImage from "../assets/mount-tv.jpg";
 import movingImage from "../assets/moving.jpg";
 import plumbingImage from "../assets/plumbing.jpg";
-import "../styles/WelcomeMessage.css"
+import "../styles/WelcomeMessage.css";
 
 const WelcomeMessage = () => {
   const taskFormRef = useRef(null);
@@ -36,7 +36,7 @@ const WelcomeMessage = () => {
           community events.
         </p>
         <div className="PopularTasksContainer">
-          <h2>Popular Tasks:</h2>
+          <h2>Create Task:</h2>
           <div className="PopularTasksGrid">
             {popularTasks.map((task, index) => (
               <Link className="TaskFormLink" key={index} to="/add">
@@ -44,7 +44,7 @@ const WelcomeMessage = () => {
                   <img src={task.image} alt={task.name} />
                   <div>
                     <strong>{task.name}</strong>
-                    <p>Projects starting at {task.price}</p>
+                    
                   </div>
                 </div>
               </Link>
@@ -52,9 +52,6 @@ const WelcomeMessage = () => {
           </div>
         </div>
       </div>
-      {/* <div ref={taskFormRef}>
-        <TaskForm></TaskForm>
-      </div> */}
     </div>
   );
 };

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import "../styles/styles.css";
-import { toggleTask, removeTask } from "../reducers/tasks";
+import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import SocialMediaShareButton from "./SocialMediaShareButton";
+import "../styles/styles.css";
+
+Modal.setAppElement("#root");
 
 export const formatDate = (dateString) => {
   const options = {
@@ -23,66 +25,80 @@ export const isTaskOverdue = (dueDate) => {
 
 const TaskItem = ({ task }) => {
   const dispatch = useDispatch();
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleToggle = (taskId) => {
-    dispatch(toggleTask(taskId));
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   const handleRemove = (taskId) => {
     dispatch(removeTask(taskId));
+    setModalOpen(false);
   };
 
-  // Define taskUrl here
   const taskUrl = window.location.href;
 
   return (
     <div className="TaskListItem">
-      <span>
-        <strong>Task</strong>
-        <br />
-        {task.text}
-      </span>
-      <span>
-        <strong>Category</strong>
-        <br />
-        {task.categories}
-      </span>
-      <span>
-        <strong>Created at</strong>
-        <br /> {formatDate(task.timestamp)}
-      </span>
-      {task.dueDate && (
-        <span style={{ color: isTaskOverdue(task.dueDate) ? "red" : "black" }}>
-          <strong>Due Date:</strong>
-          <br /> {formatDate(task.dueDate)}
-        </span>
-      )}
-      <span>
-        <strong>Price</strong>
-        <br /> ${task.price}
-      </span>
-      <div className="detail-social-delete-container">
-        <Link to={`/tasks/${task.id}`}>
-          <span className="ViewDetailsLink">Details</span>
+      <div className="task-info">
+        <div>
+          <strong>Task:</strong> {task.text}
+        </div>
+        <div>
+          <strong>Category:</strong> {task.categories}
+        </div>
+        <div>
+          <strong>Created at:</strong> {formatDate(task.timestamp)}
+        </div>
+        {task.dueDate && (
+          <div style={{ color: isTaskOverdue(task.dueDate) ? "red" : "#333" }}>
+            <strong>Due Date:</strong> {formatDate(task.dueDate)}
+          </div>
+        )}
+        <div>
+          <strong>Price:</strong> ${task.price}
+        </div>
+      </div>
+      <div className="task-actions">
+        <Link to={`/tasks/${task.id}`} className="ViewDetailsLink">
+          Details
         </Link>
-        {/* Example: Twitter Share Button */}
         <SocialMediaShareButton
           id="share-button-twitter"
           platform="twitter"
-          shareContent={`Check out this task: ${task.text} ${window.location.href}`}
-          alt="Share on twitter"
+          shareContent={`Check out this task: ${task.text} ${taskUrl}`}
+          aria-label="Share on Twitter"
+          role="button"
         />
-        {/* Example: LinkedIn Share Button */}
         <SocialMediaShareButton
-        id="share-button-linkedin"
+          id="share-button-linkedin"
           platform="linkedin"
           shareContent={{ url: taskUrl }}
-          alt="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          role="button"
         />
-        <button className="DeleteButton" onClick={() => handleRemove(task.id)} alt="Delete-item-button">
-          <FontAwesomeIcon icon={faTrash} />
+        <button
+          className="DeleteButton"
+          onClick={handleOpenModal}
+          aria-label="Delete Task"
+        >
+          <FontAwesomeIcon icon={faTrash} alt="Delete Task" />
         </button>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        contentLabel="Delete Task Modal"
+        className="confirmation-modal"
+      >
+        <p>Are you sure you want to delete this task?</p>
+        <button onClick={() => handleRemove(task.id)}>Yes</button>
+        <button onClick={handleCloseModal}>Cancel</button>
+      </Modal>
     </div>
   );
 };

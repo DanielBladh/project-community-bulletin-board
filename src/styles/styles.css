@@ -1,16 +1,39 @@
 .AppContainer {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 3rem;
 }
 
 .TasklistContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: 20px;
   margin-bottom: 2rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.tasklist-info {
+  text-align: center;
+}
+
+.TaskListGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Justera minmax baserat på ditt designbehov */
+  gap: 20px;
+  min-height: 300px;
+}
+
+.TaskListCard {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .TaskListItem {
@@ -19,10 +42,20 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.task-actions {
+  display: flex;
   align-items: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.task-actions > * {
+  margin-right: 10px;
+}
+
+.task-actions button.DeleteButton {
+  margin-left: auto;
 }
 
 .TaskList-ul {
@@ -54,6 +87,17 @@
   align-items: center;
 }
 
+.confirmation-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .icon-button {
   color: #0d6efd;
   background: none;
@@ -63,16 +107,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  align-self: center; 
-}
-
-.social-icon {
-  font-size: 1.5em; /* Adjust the size as needed */
+  align-self: center;
 }
 
 .icon-button:hover {
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+}
 
-  color: #032963; 
+.social-icon {
+  font-size: 1.5em;
 }
 
 .TaskListItem a {
@@ -82,9 +126,13 @@
 .ViewDetailsLink {
   color: white;
   cursor: pointer;
-  padding: 0px 5px;
+  padding: 0px 7px;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #333;
+}
+
+.ViewDetailsLink:hover {
+  background-color: #0d6efd;
 }
 
 .FormWrapper {
@@ -110,7 +158,6 @@
   gap: 5px;
 }
 
-/* Additional styling for checkboxes */
 .FormLabel input[type="checkbox"] {
   margin-right: 5px;
   margin-top: 1px;
@@ -153,6 +200,11 @@
   margin-left: 1.5rem;
 }
 
+.DeleteButton:hover {
+  background-color: #bebebe;
+  color: black;
+}
+
 .TaskDetailsContainer {
   max-width: 800px;
   margin: 0 auto;
@@ -176,34 +228,47 @@ footer {
 
 @media (max-width: 700px) {
   .FormWrapper {
-    width: 400px;
+    width: 100%;
   }
+
+  .TaskListContainer {
+    padding: 10px;
+  }
+
   .TaskListItem {
     display: flex;
+    flex-direction: column;
     text-align: center;
-    font-size: smaller;
   }
+
   .TaskListItem .DeleteButton {
-    margin: 0;
+    margin: 10px 0;
   }
 }
+
 @media (max-width: 400px) {
-  .FormWrapper {
-    width: 300px;
+  .TaskListCard {
+    max-width: 90%;
   }
+}
+
+/* Galaxy Fold specific styles */
+@media (max-width: 280px) {
+  .TaskListGrid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(100%, 1fr)
+    ); /* Anpassa efter behov */
+  }
+
   .TaskListItem {
-    font-size: xx-small;
+    text-align: center; /* Anpassa texten för att centreras */
   }
-  .TaskListItem .DeleteButton {
-    width: fit-content;
-    height: fit-content;
-    padding: 1px 1px;
-    margin: 5px;
+
+  .TaskListCard {
+    max-width: 100%;
   }
-  .social-icon {
-    font-size: 0.8rem;
-  }
-  .DeleteButton {
-    font-size: 0.8rem;
+  .task-actions {
+    flex-direction: column;
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { formatDate, isTaskOverdue } from "../components/TaskItem";
-import "../styles/styles.css"
+import "../styles/styles.css";
 
 const TaskDetails = () => {
   const { taskId } = useParams();
@@ -14,28 +14,6 @@ const TaskDetails = () => {
     return <div>Task not found</div>;
   }
 
-  const renderCommunicationPreferences = () => {
-    if (task.communication) {
-      const emailText = task.communication.email
-        ? `Email: ${task.communication.email}`
-        : "Email: Not specified";
-      const phoneText = task.communication.phone
-        ? `Phone: ${task.communication.phone}`
-        : "Phone: Not specified";
-
-      return (
-        <>
-          <p>
-            <strong>Communication Preferences:</strong>
-          </p>
-          <p>{emailText}</p>
-          <p>{phoneText}</p>
-        </>
-      );
-    }
-    return null;
-  };
-
   return (
     <>
       <div className="TaskDetailsContainer">
@@ -45,6 +23,10 @@ const TaskDetails = () => {
         </p>
         <p>
           <strong>Description:</strong> {task.description}
+        </p>
+        <p>
+          <strong>Price:</strong>{" "}
+          {task.price ? `$${task.price}` : "Not specified"}
         </p>
         <p>
           <strong>Created at:</strong> {formatDate(task.timestamp)}
@@ -62,17 +44,10 @@ const TaskDetails = () => {
           {task.attachments ? "Yes" : "No attachments"}
         </p>
         <p>
-          <strong>Price:</strong>{" "}
-          {task.price ? `$${task.price}` : "Not specified"}
+          <strong>Email:</strong> {task.communication?.email || "Not specified"}
         </p>
-        {/* <p>
-          <strong>Requirements:</strong>{" "}
-          {task.requirements || "No specific requirements"}
-        </p> */}
-        {renderCommunicationPreferences()}
         <p>
-          <strong>Security Info:</strong>{" "}
-          {task.securityInfo || "No security information provided"}
+          <strong>Phone:</strong> {task.communication?.phone || "Not specified"}
         </p>
       </div>
     </>

@@ -19,6 +19,11 @@ const RuleItem = styled.li`
   margin-bottom: 10px;
   text-align: left;
   max-width: 600px;
+  
+  @media (max-width: 600px) {
+    /* Adjust styles for mobile */
+    max-width: 100%; /* Set max-width to 100% for smaller screens */
+  }
 `;
 
 const CommunityGuidelines = () => {
