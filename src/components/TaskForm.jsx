@@ -165,7 +165,7 @@ const TaskForm = () => {
             </select>
           </label>
 
-          {/* Attachments */}
+          {/* Attachments
           <label className="FormLabel">
             Attachments:
             <input
@@ -173,7 +173,7 @@ const TaskForm = () => {
               type="file"
               onChange={(e) => setAttachments(e.target.files[0])}
             />
-          </label>
+          </label> */}
 
           {/* Pricing */}
           <label className="FormLabel">

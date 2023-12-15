@@ -39,10 +39,10 @@ const TaskDetails = () => {
           <strong>Categories:</strong>{" "}
           {task.categories && task.categories.join(", ")}
         </p>
-        <p>
+        {/* <p>
           <strong>Attachments:</strong>{" "}
           {task.attachments ? "Yes" : "No attachments"}
-        </p>
+        </p> */}
         <p>
           <strong>Email:</strong> {task.communication?.email || "Not specified"}
         </p>
