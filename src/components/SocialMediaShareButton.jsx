@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import "../styles/styles.css"
+import "../styles/styles.css";
 
 const SocialMediaShareButton = ({ platform, shareContent }) => {
   const handleShare = () => {
@@ -41,7 +41,11 @@ const SocialMediaShareButton = ({ platform, shareContent }) => {
   };
 
   return (
-    <button onClick={handleShare} className="icon-button">
+    <button
+      onClick={handleShare}
+      className="icon-button"
+      aria-label={`Share on ${platform}`}
+    >
       {getIcon(platform)}
     </button>
   );

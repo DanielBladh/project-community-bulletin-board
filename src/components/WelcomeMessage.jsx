@@ -36,7 +36,7 @@ const WelcomeMessage = () => {
           community events.
         </p>
         <div className="PopularTasksContainer">
-          <h2>Create Task:</h2>
+          <h3>What do you need help with?</h3>
           <div className="PopularTasksGrid">
             {popularTasks.map((task, index) => (
               <Link className="TaskFormLink" key={index} to="/add">
